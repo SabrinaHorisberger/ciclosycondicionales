@@ -1,13 +1,27 @@
 
 
+function saludar () {
+    console.log("Hola! bienvenido a nuestra agenda culinaria, te ayudaremos a buscar los mejores lugares para comer. en base a tus preferencias y a lo que estes dispuesto a gastar.")
+}
+saludar()
 
 
+let edad 
 
+do{
+    edad = parseInt (prompt("Primero ingrese su edad, por favor:"))
+    
+    if((edad<18)){
+        alert("no cumples con los requisitos de ingreso")
+    }
+    
+}while(isNaN(edad) || edad <=18){
+    alert("Perfecto! vamos por el siguiente paso")
+    
+   
+}
 
-
-// Algoritmo con condicionales:
-
-let PrefAlimenticias = prompt("Ingrese su preferencia Alimenticia:").toLowerCase()
+let PrefAlimenticias = prompt(" Primero veamos segun tu preferencia alimenticia, que comidas prefieres:vegetariana, vegana, celiaca o ninguna?").toLowerCase()
 
 if(PrefAlimenticias == "vegetariana"){
     console.log ("Los mejores lugares para comer comida vegetariana en Buenos Aires son:");
@@ -21,29 +35,37 @@ if(PrefAlimenticias == "vegetariana"){
     alert("Por favor, ingrese una opción válida:");
 
 }
+  
+  /*let comid, postr 
+  
+  do{
+    comid = parseInt(prompt ("Ahora veamos segun la billetera: Cuanto gastarías en comida?"))
+    postr = parseInt(prompt ("Y en el postre?"))
 
-let numero = parseInt(prompt( " Cuánto estas dispuesto a gastar?"))
+    if (isNan(comid) || isNaN(postr)){
+       alert(" Por favor ingresar numeros validos!")
+    }
+    
+}while (isNaN(comid) || isNaN(postr)){
+}   
+console.log(postr + comid)*/
 
-if( numero <= 3000 && isNaN){
+
+function sumar(comida = 0, postre = 0){
+   
+    return comida + postre
+}
+let comida = parseInt(prompt ("Ahora veamos segun la billetera: Cuanto gastarías en comida?"))
+let postre = parseInt(prompt ("Y en el postre?"))
+
+let resultado = sumar(comida, postre)
+
+if( resultado <= 3000 && isNaN){
     console.log ("Los mejores lugares para comer por debajo de los $3000 son:");
-} else if(numero <= 5000){
+} else if(resultado <= 5000){
     console.log("Los mejores lugares para comer por debajo de los $5000 son:");
-} else if(numero >= 5000){
+} else if(resultado >= 5000){
     ("Por este rango de precios podes disfrutar una rica comida en:");
 } else{
     alert(" Ingrese una opción válida")
-}
-
-//Algoritmo con ciclos
-
-let edad 
-
-do{
-    edad = parseFloat (prompt("Ingrese su edad, por favor:"))
-
-
-}while(isNaN(edad) || edad <=18){
-    alert("Puede ingresar")
-    
-   
-}
+} 
