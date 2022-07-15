@@ -43,17 +43,17 @@ const restaurante9 = new Restaurante (9, "vegetariana", "All green", 2000)
 const restaurante10 = new Restaurante (10, "vegana", "Panda Restaurante", 3000)
 
 const restaurante = [restaurante1, restaurante2, restaurante3, restaurante4, restaurante5, restaurante6, restaurante7, restaurante8, restaurante9, restaurante10]
- 
+const restaurantesVeganos = [ restaurante2, restaurante10]
 
 console.log (restaurante[0].nombre + ", " + restaurante[1].nombre + ", " + restaurante[2].nombre + ", " + restaurante[3].nombre + ", " + restaurante[4].nombre + ", " + restaurante[5].nombre+ ", " + restaurante[6].nombre + ", " + restaurante[7].nombre+ ", " + restaurante[8].nombre+ " y " + restaurante[9].nombre+ ".")
 
 let PrefAlimenticias = prompt(" Ahora veamos segun tu preferencia alimenticia, que comidas prefieres:vegetariana, vegana, celiaca o ninguna?").toLowerCase()
 
 if(PrefAlimenticias == "vegetariana"){
-    console.log ("Los mejores lugares para comer comida vegetariana en Buenos Aires son:" + restaurante[0].nombre + ", "  + restaurante[2].nombre + ", " + restaurante[4].nombre + " y " + restaurante[8].nombre);
+  console.log ("Los mejores lugares para comer comida vegetariana en Buenos Aires son:" + restaurante[0].nombre + ", "  + restaurante[2].nombre + ", " + restaurante[4].nombre + " y " + restaurante[8].nombre);
 } else if(PrefAlimenticias == "vegana") {
-    console.log("Los mejores lugares para comer comida vegana en Buenos Aires son: " + restaurante[1].nombre + " y " +restaurante[9].nombre );
-} else if(PrefAlimenticias == " celiaca"){
+    console.log("Los mejores lugares para comer comida vegana en Buenos Aires son: " + `${restaurantesVeganos.nombre}`);
+} else if(PrefAlimenticias == "celiaca"){
     console.log("Los mejores lugares para comer comida celiaca en Buenos Aires son:" + restaurante[4].nombre + " y " + restaurante[7].nombre);
 } else if(PrefAlimenticias == "ninguna"){
     console.log("Los mejores lugares para comer en Buenos Aires son:" + restaurante[5].nombre + " y  " + restaurante[6].nombre );
@@ -72,11 +72,11 @@ let postre = parseInt(prompt ("Y en el postre?"))
 let resultado = sumar(comida, postre)
 
 if( resultado <= 3000 && isNaN){
-    console.log ("Los mejores lugares para comer por debajo de los $3000 son:" );
+    console.log ("Los mejores lugares para comer por debajo de los $3000 son:" + restaurante[2].nombre + ", " + restaurante[4].nombre + ", " + restaurante[8].nombre);
 } else if(resultado <= 5000){
-    console.log("Los mejores lugares para comer por debajo de los $5000 son:");
+    console.log("Los mejores lugares para comer por debajo de los $5000 son:" + restaurante[2].nombre + ", " + restaurante[4].nombre + ", " + restaurante[8].nombre + ", " + restaurante[3].nombre  + ", " + restaurante[5].nombre + restaurante[6].nombre + ", " + restaurante[7].nombre);
 } else if(resultado >= 5000){
-    ("Por este rango de precios podes disfrutar una rica comida en:");
+    ("Por este rango de precios podes disfrutar una rica comida en todos los restaurantes que participan en nuestra agenda culinaria");
 } else{
     alert(" Ingrese una opción válida")
 } 
