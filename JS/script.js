@@ -44,6 +44,15 @@ const restaurante10 = new Restaurante (10, "vegana", "Panda Restaurante", 3000)
 
 const restaurante = [restaurante1, restaurante2, restaurante3, restaurante4, restaurante5, restaurante6, restaurante7, restaurante8, restaurante9, restaurante10]
 const restaurantesVeganos = [restaurante2, restaurante10]
+const divRestaurantes = document.getElementById ('restaurantes')
+
+restaurante.forEach(restauranteArray => {  
+      divRestaurantes.innerHTML += `
+      <div id= "restaurante ${restauranteArray.id}"class ="restaurante">
+      <p> ${restauranteArray.nombre}  <p>
+      </div>
+      `
+})
 
 restaurante.forEach(restaurante => {
     console.log (restaurante.nombre)
@@ -55,7 +64,8 @@ if(PrefAlimenticias == "vegetariana"){
   console.log ("Los mejores lugares para comer comida vegetariana en Buenos Aires son:" + restaurante[0].nombre + ", "  + restaurante[2].nombre + ", " + restaurante[4].nombre + " y " + restaurante[8].nombre);
 } else if(PrefAlimenticias == "vegana") {
     restaurantesVeganos.forEach(restaurantesVeganos => {
-        console.log("Los mejores lugares para comer comida vegana en Buenos Aires son: " + restaurantesVeganos.nombre);
+        console.log ("Los mejores lugares para comer comida vegana en Buenos Aires son: " + `${restaurantesVeganos.nombre}`)
+        
     })
 } else if(PrefAlimenticias == "celiaca"){
     console.log("Los mejores lugares para comer comida celiaca en Buenos Aires son:" + restaurante[4].nombre + " y " + restaurante[7].nombre);
