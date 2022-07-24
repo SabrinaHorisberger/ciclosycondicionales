@@ -1,27 +1,8 @@
 
 
-// function saludar () {
-//     alert("Hola! bienvenido a nuestra agenda culinaria, te ayudaremos a buscar los mejores lugares para comer  en base a tus preferencias y a lo que estes dispuesto a gastar.")
-// }
-// saludar()
+const divSaludo = document.getElementById ('saludo')
+console.log(document.getElementById ('saludo').childNodes)
 
-
-// let edad 
-
-// do{
-//     edad = parseInt (prompt("Primero ingrese su edad, por favor:"))
-    
-//     if((edad<18)){
-//         alert("no cumples con los requisitos de ingreso")
-//     }
-    
-// }while(isNaN(edad) || edad <=18){
-//     alert("Bienvenido!")
-    
-   
-// }
-
-// alert ("Los restaurantes que participan de nuestra agenda son:")
 
 class Restaurante{
     constructor(id, tipo, nombre, precio){
@@ -44,6 +25,10 @@ const restaurante10 = new Restaurante (10, "vegana", "Panda Restaurante", 3000)
 
 const restaurante = [restaurante1, restaurante2, restaurante3, restaurante4, restaurante5, restaurante6, restaurante7, restaurante8, restaurante9, restaurante10]
 const restaurantesVeganos = [restaurante2, restaurante10]
+const restaurantesVegetarianos = [restaurante1,restaurante3,restaurante5,restaurante9]
+const restaurantesCeliacos = [ restaurante4, restaurante8]
+const restaurantesSinpref = [restaurante6, restaurante7]
+
 const divRestaurantes = document.getElementById ('restaurantes')
 
 restaurante.forEach(restauranteArray => {  
@@ -58,61 +43,98 @@ restaurante.forEach(restaurante => {
     console.log (restaurante.nombre)
 })
 
-//let PrefAlimenticias = prompt(" Segun tu preferencia alimenticia, que comidas prefieres: vegetariana, vegana, celiaca o ninguna? ").toLowerCase()
-alert(" Segun tu preferencia alimenticia, que comidas prefieres: vegetariana, vegana, celiaca o ninguna? ")
+
+const preferenciasElegir = document.getElementById('preferenciaselegir')
 
 const preferencias = document.getElementById ('preferencias')
 
 preferencias.addEventListener('input', () => {
     console.log (preferencias.value)
+    
     if(preferencias.value == "vegetariana"){
-        console.log ("Los mejores lugares para comer comida vegetariana en Buenos Aires son:" + restaurante[0].nombre + ", "  + restaurante[2].nombre + ", " + restaurante[4].nombre + " y " + restaurante[8].nombre);
+        restaurantesVegetarianos.forEach(restaurantesVegetarianos => {
+           // const restaurantesElegidos = document.getElementById( 'restauranteselegidos' + `${restaurantesVegetarianos.nombre}`)
+            console.log ("Los mejores lugares para comer comida vegetaria en Buenos Aires son: " + `${restaurantesVegetarianos.nombre}`)
+            
+        })
       } else if(preferencias.value == "vegana") {
           restaurantesVeganos.forEach(restaurantesVeganos => {
               console.log ("Los mejores lugares para comer comida vegana en Buenos Aires son: " + `${restaurantesVeganos.nombre}`)
               
           })
       } else if(preferencias.value == "celiaca"){
-          console.log("Los mejores lugares para comer comida celiaca en Buenos Aires son:" + restaurante[4].nombre + " y " + restaurante[7].nombre);
+        restaurantesCeliacos.forEach(restaurantesCeliacos => {
+            console.log ("Los mejores lugares para comer comida celiaca en Buenos Aires son: " + `${restaurantesCeliacos.nombre}`)
+            
+        })
+
       } else if(preferencias.value == "ninguna"){
-          console.log("Los mejores lugares para comer en Buenos Aires son:" + restaurante[5].nombre + " y  " + restaurante[6].nombre );
+        restaurantesSinpref.forEach(restaurantesSinpref=> {
+            console.log ("Los mejores lugares para comer cualquier tipo de comida en Buenos Aires son: " + `${restaurantesSinpref.nombre}`)
+       
+        })
       } 
-    //   else {
-    //     //   alert("Por favor, ingrese una opción válida:");
-    //   }  
+
+      // else {
+         // alert("Por favor, ingrese una opción válida:");
+  // }  
 })
-  
-function sumar(comida = 0, postre = 0){
-    return comida + postre
+
+
+
+restauranteprecio.innerHTML += "<p>Ahora veamos segun la billetera: Cuanto gastarías en comida? </p>"
+console.log(document.getElementById('restauranteprecio'))
+
+precio1.addEventListener('input', () =>{
+    console.log (precio1.value)
+
+
+
+
+/*restaurantepreciopostre.innerHTML += "<p> Y en el postre? </p>"
+console.log(document.getElementById('restaurantepreciopostre'))
+
+precio2.addEventListener('input', () =>{
+    console.log (precio2.value)
+
+})
+
+
+function sumar( precio1= 0, precio2= 0){
+    return precio1 + precio2.value
+
 }
-// let comida = parseInt(prompt ("Ahora veamos segun la billetera: Cuanto gastarías en comida?"))
-// let postre = parseInt(prompt ("Y en el postre?"))
 
-let resultado = sumar(comida, postre)
+let resultado = sumar(precio1, precio2)
 
-// if( resultado <= 3000 && isNaN){
+console.log("el resultado es" + resultado)*/
 
-//     const restoDebajoigual3000 = restaurante.filter (restaurante => restaurante.precio <= 3000)
+if( precio1.value <= 3000 && isNaN){
+
+    const restoDebajoigual3000 = restaurante.filter (restaurante => restaurante.precio <= 3000)
     
-//     restoDebajoigual3000.forEach ( restaurante => {
-//         console.log( "Los mejores lugares para comer por debajo de los $3000 son:" + restaurante.nombre )
-//     })
+     restoDebajoigual3000.forEach ( restaurante => {
+         console.log( "Los mejores lugares para comer por debajo de los $3000 son:" + restaurante.nombre )
+    })
      
-// } else if(resultado <= 5000){
+ } else if(precio1.value <= 5000){
 
-//     const restoDebajoigual5000 = restaurante.filter (restaurante => restaurante.precio <= 5000)
+     const restoDebajoigual5000 = restaurante.filter (restaurante => restaurante.precio <= 5000)
     
-//     restoDebajoigual5000.forEach ( restaurante => {
-//         console.log( "Los mejores lugares para comer por debajo de los $5000 son:" + restaurante.nombre )
-//     })
+     restoDebajoigual5000.forEach ( restaurante => {
+         console.log( "Los mejores lugares para comer por debajo de los $5000 son:" + restaurante.nombre )
+     })
      
-// } else if(resultado >= 5000){
-//     ("Por este rango de precios podes disfrutar una rica comida en todos los restaurantes que participan en nuestra agenda culinaria");
-// } else{
-//     alert(" Ingrese una opción válida")
-// } 
+ } else if(precio1.value >= 5000){
+    ("Por este rango de precios podes disfrutar una rica comida en todos los restaurantes que participan en nuestra agenda culinaria");
+ } 
+ 
+})//else{
+   //  alert(" Ingrese una opción válida")
+ //} 
 
-/*const input1 = document.getElementById ('input1')
-input1.addEventListener('input', () => {
-    console.log ("Hola")  
-})*/
+
+////const input1 = document.getElementById ('input1')
+///input1.addEventListener('input', () => {
+  //  console.log ("Hola")  
+//})*/

@@ -1,7 +1,23 @@
-.restaurante {
-    color :blueviolet;
+.body{
+
+    background-color:#0D1517;
+}
+.saludo{
     margin: 3px;
     font-size: large;
-    background-color: white
-    ;
+    color: #50D821;
+    font-family: 'Montserrat', sans-serif;}
+    
+.restaurantes{
+    margin: 3px;
+    font-size: large;
+    color: #50D821;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.restaurante {
+    color: #E49018;
+    margin: 3px;
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
 }
